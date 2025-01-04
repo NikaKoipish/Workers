@@ -23,9 +23,6 @@ class WorkerTestCase(TestCase):
         self.assertEqual(data["full_name"], self.worker.full_name)
 
     def test_BrigadeWorkerList(self):
-        """
-        Проверяем получение списка работников в бригаде
-        """
         url = reverse("workers:brigade_workers_list", args=(self.worker.brigade_number,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
